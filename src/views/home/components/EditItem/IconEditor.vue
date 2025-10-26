@@ -141,7 +141,7 @@ const handleUploadFinish = ({
           <div v-if="itemIconInfo.itemType === 2">
             <NInput v-model:value="itemIconInfo.src" class="mb-[5px] w-full" size="small" type="text" :placeholder="$t('iconItem.inputIconUrlOrUpload')" @input="handleChange" />
             <NUpload
-              action="/api/file/uploadImg"
+              action="/sunpanel/file/uploadImg"
               :show-file-list="false"
               name="imgfile"
               :headers="{

@@ -191,7 +191,7 @@ function resetPanelConfig() {
         {{ $t('apps.baseSettings.wallpaper') }}
       </div>
       <NUpload
-        action="/api/file/uploadImg"
+        action="/sunpanel/file/uploadImg"
         :show-file-list="false"
         name="imgfile"
         :headers="{

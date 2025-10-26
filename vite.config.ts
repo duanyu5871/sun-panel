@@ -30,6 +30,7 @@ export default defineConfig((env) => {
   const viteEnv = loadEnv(env.mode, process.cwd()) as unknown as ImportMetaEnv
 
   return {
+    base: '/sunpanel/',
     resolve: {
       alias: {
         '@': path.resolve(process.cwd(), 'src'),
@@ -38,7 +39,7 @@ export default defineConfig((env) => {
     plugins: setupPlugins(viteEnv),
     server: {
       host: '0.0.0.0',
-      port: 1002,
+      port: 3002,
       open: false,
       proxy: {
         '/api': {
