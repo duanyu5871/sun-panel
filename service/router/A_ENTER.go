@@ -16,7 +16,7 @@ func InitRouters(addr string) error {
 	// rootRouter := router.Group("/")   // 不必须
 	// 创建两个前缀的 API 分组：/api 与 /sunpanel/api
 	apiGroup := router.Group("/api")
-	apiGroupSun := router.Group("/sunpanel/api")
+	apiGroupSun := router.Group("/sunpanel")
 
 	// 接口：对每个模块同时注册到 /api 和 /sunpanel/api
 	system.Init(apiGroup)
@@ -46,6 +46,7 @@ func InitRouters(addr string) error {
 	// 上传的文件
 	sourcePath := global.Config.GetValueString("base", "source_path")
 	router.Static(sourcePath[1:], sourcePath)
+	router.Static("/sunpanel" + sourcePath[1:], sourcePath)
 
 	global.Logger.Info("Sun-Panel is Started.  Listening and serving HTTP on ", addr)
 	return router.Run(addr)

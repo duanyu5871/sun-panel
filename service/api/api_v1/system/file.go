@@ -53,10 +53,12 @@ func (a *FileApi) UploadImg(c *gin.Context) {
 		c.SaveUploadedFile(f, filepath)
 
 		// 像数据库添加记录
+		truePath := "/sunpanel" + filepath[1:]
+
 		mFile := models.File{}
-		mFile.AddFile(userInfo.ID, f.Filename, fileExt, filepath)
+		mFile.AddFile(userInfo.ID, f.Filename, fileExt, truePath)
 		apiReturn.SuccessData(c, gin.H{
-			"imageUrl": filepath[1:],
+			"imageUrl": truePath,
 		})
 	}
 }
@@ -87,9 +89,10 @@ func (a *FileApi) UploadFiles(c *gin.Context) {
 		} else {
 			// 成功
 			// 像数据库添加记录
+			truePath := "/sunpanel" + filepath[1:]
 			mFile := models.File{}
-			mFile.AddFile(userInfo.ID, f.Filename, fileExt, filepath)
-			succMap[f.Filename] = filepath[1:]
+			mFile.AddFile(userInfo.ID, f.Filename, fileExt, truePath)
+			succMap[f.Filename] = truePath
 		}
 	}
 
