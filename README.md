@@ -1,3 +1,5 @@
+修改了baseurl，强制将所有的访问都限定在"/sunpanel"的路径下，原有的根目录"/"也保留理论上还能使用，但是做了302跳转到新的
+
 [[ 简体中文 ]](https://sun-panel-doc.enianteam.com/zh_cn/introduce/project.html) |
 [[ English ]](https://sun-panel-doc.enianteam.com/introduce/project.html)
 
